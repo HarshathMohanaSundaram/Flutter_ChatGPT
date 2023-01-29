@@ -27,13 +27,13 @@ class _ChatWithGPTState extends State<ChatWithGPT> {
   }
 
   Future<String> generateResponse(String prompt) async {
+    final String _apiKey = "Your api Key";
     var url = Uri.https("api.openai.com", "/v1/completions");
     final response = await http.post(
       url,
       headers: {
         'Content-Type': 'application/json',
-        "Authorization":
-            "Bearer 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"
+        "Authorization": "Bearer $_apiKey"
       },
       body: json.encode({
         "model": "text-davinci-003",
